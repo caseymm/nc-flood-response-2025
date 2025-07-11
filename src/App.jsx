@@ -73,7 +73,7 @@ function App() {
 
       // Set up popup
       const popup = new mapboxgl.Popup({
-        closeButton: false,
+        closeButton: true,
         closeOnClick: false,
         anchor: "top",
       });
