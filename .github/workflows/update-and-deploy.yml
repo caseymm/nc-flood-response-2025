@@ -30,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: 🧠 Run fetch script
-        run: node ./scripts/fetch-sheet.mjs
+        run: node ./scripts/fetch.mjs
 
       - name: 📂 Check for changes
         run: |
