@@ -9,10 +9,6 @@ function App() {
   const mapRef = useRef(null); // <- hold the map instance
 
   useEffect(() => {
-    // if (mapRef.current) return;
-    console.log("mapContainerRef.current:", mapContainerRef.current);
-    console.log("mapRef.current:", mapRef.current);
-
     // Initialize map
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
