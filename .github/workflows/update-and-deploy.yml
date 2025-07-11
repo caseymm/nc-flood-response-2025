@@ -32,7 +32,7 @@ jobs:
       - run: npm ci
 
       - name: 🧠 Run fetch script
-        run: node ./scripts/fetch-sheet.mjs
+        run: node ./scripts/fetch.js
 
       - name: 🧾 Commit if changes exist
         id: set-output
