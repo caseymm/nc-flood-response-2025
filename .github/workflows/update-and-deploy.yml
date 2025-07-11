@@ -1,0 +1,65 @@
+name: Update sheet and deploy
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Every 15 minutes from 9 AM–8:45 PM ET (13:00–00:00 UTC)
+    - cron: "*/15 13-23 * * *"
+    - cron: "0 0 * * *" # 8 PM–9 PM ET hour ends at 0 UTC next day
+
+    # Hourly from 9 PM–8 AM ET (01:00–12:00 UTC)
+    - cron: "0 1-12 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🟨 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install deps
+        run: npm ci
+
+      - name: 🧠 Run fetch script
+        run: node ./scripts/fetch-sheet.mjs
+
+      - name: 📂 Check for changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/sheetData.json public/w3w.json
+          git diff --cached --quiet || git commit -m "🤖 Update sheet + w3w data" && git push
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: npm ci
+
+      - name: 🔨 Build project
+        run: npm run build
+
+      - name: 🚀 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist # change if your build output dir is different
