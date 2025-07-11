@@ -8,8 +8,8 @@ const __dirname = dirname(__filename);
 const url =
   "https://docs.google.com/spreadsheets/d/11aiflZi5aZl-udztLQ-dyzeXBNG03AVBzKGl-h6j-eA/gviz/tq?tqx=out:json&gid=1013354488";
 
-const outputPath = `${__dirname}/../src/sheetData.json`;
-const w3wPath = `${__dirname}/../src/w3w.json`;
+const outputPath = `${__dirname}/../public/sheetData.json`;
+const w3wPath = `${__dirname}/../public/w3w.json`;
 
 async function fetchSheet() {
   try {
@@ -40,13 +40,15 @@ async function fetchSheet() {
           ) {
             value = value.slice(3);
           }
+          if (key === "Urgency" && typeof value === "string") {
+            value = value[0];
+          }
           return [key, value];
         })
       )
     );
 
     return parsed;
-    // await fs.writeFileSync(outputPath, JSON.stringify(parsed, null, 2));
   } catch (err) {
     console.error("❌ Error:", err.message);
   }

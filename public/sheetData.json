@@ -1,7 +1,7 @@
 [
   {
     "ID": "!///focal.career.files",
-    "Urgency": "1 - Low",
+    "Urgency": "1",
     "Description (neighborhood, business name, intersection, address, etc.)": "Example Encampment",
     "City": "Carrboro",
     "Notes": "Whatever people need to know about the location.",
@@ -53,7 +53,7 @@
   },
   {
     "ID": "serve.fetch.lung",
-    "Urgency": "0 - Inactive",
+    "Urgency": "0",
     "Description (neighborhood, business name, intersection, address, etc.)": "Estes Park",
     "City": "Carrboro",
     "Notes": "appears to be no flooded units",
@@ -66,7 +66,7 @@
   },
   {
     "ID": "boats.round.casual",
-    "Urgency": "2 - Medium",
+    "Urgency": "2",
     "Description (neighborhood, business name, intersection, address, etc.)": "Ridgefield Rd & Walnut St",
     "City": "Chapel Hill",
     "Notes": "some flooding. dumpsters around. could use non urgent canvassing",
@@ -170,7 +170,7 @@
   },
   {
     "ID": "inclusive.maximum.bleakly",
-    "Urgency": "1 - Low",
+    "Urgency": "1",
     "Description (neighborhood, business name, intersection, address, etc.)": "Pritchard Ave & W Rosemary St",
     "City": "Chapel Hill",
     "Notes": "Added because: Motorist advisory to avoid flooded areas Jul 9\nMostly business, some residential",
@@ -261,7 +261,7 @@
   },
   {
     "ID": "saxophone.showcasing.vindicated",
-    "Urgency": "3 - High",
+    "Urgency": "3",
     "Description (neighborhood, business name, intersection, address, etc.)": "Kingswood Apartments off 54",
     "City": "Chapel Hill",
     "Notes": "one resident needs a Queen size bed, and many other household items",
@@ -352,7 +352,7 @@
   },
   {
     "ID": "descended.deed.brain",
-    "Urgency": "2 - Medium",
+    "Urgency": "2",
     "Description (neighborhood, business name, intersection, address, etc.)": "Forest Hills neighborhood",
     "City": "Durham",
     "Notes": "Added because: Motorist advisory to avoid flooded areas Jul 9",
@@ -365,7 +365,7 @@
   },
   {
     "ID": "feast.renew.easy",
-    "Urgency": "1 - Low",
+    "Urgency": "1",
     "Description (neighborhood, business name, intersection, address, etc.)": "South Square (shopping center)",
     "City": "Durham",
     "Notes": "Added because: Motorist advisory to avoid flooded areas Jul 9; water rescue\nNB: Primarily businesses, not residences",
@@ -378,7 +378,7 @@
   },
   {
     "ID": "firms.ants.lift",
-    "Urgency": "1 - Low",
+    "Urgency": "1",
     "Description (neighborhood, business name, intersection, address, etc.)": "N Duke St & W Morgan St",
     "City": "Durham",
     "Notes": "Added because: Motorist advisory to avoid flooded areas Jul 9\nNB: Primarily businesses",
@@ -404,7 +404,7 @@
   },
   {
     "ID": "took.stay.grace",
-    "Urgency": "1 - Low",
+    "Urgency": "1",
     "Description (neighborhood, business name, intersection, address, etc.)": "Hunt St & Foster St",
     "City": "Durham",
     "Notes": "Added because: Motorist advisory to avoid flooded areas Jul 9\nNB: Primarily businesses",
@@ -430,7 +430,7 @@
   },
   {
     "ID": "weep.risky.scale",
-    "Urgency": "1 - Low",
+    "Urgency": "1",
     "Description (neighborhood, business name, intersection, address, etc.)": "W Lakewood Ave & Blackwell St",
     "City": "Durham",
     "Notes": "Added because: Motorist advisory to avoid flooded areas Jul 9\nNB: Primarily businesses, green space",
@@ -443,7 +443,7 @@
   },
   {
     "ID": "shepherds.shop.detector",
-    "Urgency": "4 - Highest",
+    "Urgency": "4",
     "Description (neighborhood, business name, intersection, address, etc.)": "Rippling Stream Apartments",
     "City": "Durham",
     "Notes": "was starting to seriously flood as of 8:30 p.m. 07/09. Folks reaching out about flooded cars",
@@ -599,7 +599,7 @@
   },
   {
     "ID": "descended.chains.tanks",
-    "Urgency": "4 - Highest",
+    "Urgency": "4",
     "Description (neighborhood, business name, intersection, address, etc.)": "Clay Street Tavern, 103 W Clay Street",
     "City": "Mebane",
     "Notes": "Mebane now in level 5 water emergency (cannot use any tap water). Water desperately needed",
@@ -612,7 +612,7 @@
   },
   {
     "ID": "free.leave.image",
-    "Urgency": "4 - Highest",
+    "Urgency": "4",
     "Description (neighborhood, business name, intersection, address, etc.)": "Junction 70, 107 E Center Street",
     "City": "Mebane",
     "Notes": "Water storage can be taken here if Clay Street Tavern not available",
@@ -625,7 +625,7 @@
   },
   {
     "ID": null,
-    "Urgency": "0 - Inactive",
+    "Urgency": "0",
     "Description (neighborhood, business name, intersection, address, etc.)": "Lake Michael & Surrounding Areas",
     "City": "Mebane",
     "Notes": "This location is too vague. Please add a set of more specific locations as you can figure them out.",
@@ -638,7 +638,7 @@
   },
   {
     "ID": "hungry.untaxed.surveyor",
-    "Urgency": "1 - Low",
+    "Urgency": "1",
     "Description (neighborhood, business name, intersection, address, etc.)": "Cup 22/Haw River Ballroom",
     "City": "Saxapahaw",
     "Notes": "Also being used as the organizing hub for Saxapahaw\nThis site is only available through July 19th, then all items will need to be relocated",
