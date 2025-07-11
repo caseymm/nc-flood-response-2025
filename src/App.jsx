@@ -17,10 +17,12 @@ function App() {
       zoom: 9,
     });
 
+    const base = import.meta.env.BASE_URL || "/";
+
     mapRef.current.on("load", async () => {
       const [sheetData, w3w] = await Promise.all([
-        fetch("/sheetData.json").then((res) => res.json()),
-        fetch("/w3w.json").then((res) => res.json()),
+        fetch(`${base}sheetData.json`).then((res) => res.json()),
+        fetch(`${base}w3w.json`).then((res) => res.json()),
       ]);
       console.log(sheetData, w3w);
 
