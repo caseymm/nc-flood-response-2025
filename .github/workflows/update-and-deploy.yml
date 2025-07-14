@@ -1,76 +1,76 @@
-name: Update and deploy
+# name: Update and deploy
 
-on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: "*/15 13-23 * * *" # every 15 min (9am–9pm ET)
-    - cron: "0 0 * * *" # 8pm ET (midnight UTC)
-    - cron: "0 1-12 * * *" # hourly 9pm–8am ET
-  workflow_dispatch:
+# on:
+#   push:
+#     branches:
+#       - main
+#   schedule:
+#     - cron: "*/15 13-23 * * *" # every 15 min (9am–9pm ET)
+#     - cron: "0 0 * * *" # 8pm ET (midnight UTC)
+#     - cron: "0 1-12 * * *" # hourly 9pm–8am ET
+#   workflow_dispatch:
 
-permissions:
-  contents: write
-  actions: read
+# permissions:
+#   contents: write
+#   actions: read
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.set-output.outputs.changed }}
+# jobs:
+#   update:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       changed: ${{ steps.set-output.outputs.changed }}
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
+#     steps:
+#       - uses: actions/checkout@v4
+#         with:
+#           persist-credentials: true
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: 20
 
-      - run: npm ci
+#       - run: npm ci
 
-      - name: 🧠 Run fetch script
-        run: node ./scripts/fetch.js
+#       - name: 🧠 Run fetch script
+#         run: node ./scripts/fetch.js
 
-      - name: 🧾 Commit if changes exist
-        id: set-output
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/sheetData.json public/w3w.json
+#       - name: 🧾 Commit if changes exist
+#         id: set-output
+#         run: |
+#           git config user.name "github-actions[bot]"
+#           git config user.email "github-actions[bot]@users.noreply.github.com"
+#           git add public/sheetData.json public/w3w.json
 
-          if git diff --cached --quiet; then
-            echo "No changes"
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            git commit -m "🤖 Update sheet + w3w data"
-            git push
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
+#           if git diff --cached --quiet; then
+#             echo "No changes"
+#             echo "changed=false" >> $GITHUB_OUTPUT
+#           else
+#             git commit -m "🤖 Update sheet + w3w data"
+#             git push
+#             echo "changed=true" >> $GITHUB_OUTPUT
+#           fi
 
-  deploy:
-    needs: update
-    if: github.event_name == 'push' || needs.update.outputs.changed == 'true'
-    runs-on: ubuntu-latest
+#   deploy:
+#     needs: update
+#     if: github.event_name == 'push' || needs.update.outputs.changed == 'true'
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+#     steps:
+#       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: 20
 
-      - run: npm ci
+#       - run: npm ci
 
-      - name: 🔨 Build site
-        run: npm run build
-        env:
-          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+#       - name: 🔨 Build site
+#         run: npm run build
+#         env:
+#           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
 
-      - name: 🚀 Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+#       - name: 🚀 Deploy to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v4
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ./dist
